@@ -12,7 +12,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // ── Constants ────────────────────────────────────────────────────────────────
-define( 'WSR_VERSION',   '1.2.2' );
+define( 'WSR_VERSION',   '1.2.3' );
 // WSR_FILE harus menunjuk ke entry point premium (root plugin file)
 // agar register_activation_hook() dan plugin_dir_path() bekerja dengan benar.
 if ( ! defined( 'WSR_FILE' ) ) define( 'WSR_FILE', dirname( __DIR__ ) . '/wp-static-runtime.php' );

@@ -2,7 +2,7 @@
 
 **Static HTML caching engine for WordPress.** Serve pages at CDN speed from any shared host — zero PHP execution on cached pages.
 
-[![Version](https://img.shields.io/badge/version-1.2.2-7c3aed?style=flat-square)](https://github.com/lokadwiartara/wp-static-runtime/releases)
+[![Version](https://img.shields.io/badge/version-1.2.3-7c3aed?style=flat-square)](https://github.com/lokadwiartara/wp-static-runtime/releases)
 [![WordPress](https://img.shields.io/badge/WordPress-5.8%2B-21759b?style=flat-square&logo=wordpress)](https://wordpress.org)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4?style=flat-square&logo=php)](https://php.net)
 [![License](https://img.shields.io/badge/license-GPL--2.0-green?style=flat-square)](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -146,6 +146,10 @@ Request berikut **tidak pernah** di-cache:
 ---
 
 ## Changelog
+
+### v1.2.3
+- **Perbaikan plugin tidak ter-load / aktivasi:** `WSR_FILE` kini selalu diset dari file utama plugin (`__FILE__`) sehingga `register_activation_hook`, `plugin_basename`, dan URL aset selaras dengan path yang WordPress gunakan (aman untuk folder hasil zip GitHub, symlink, dan normalisasi path).
+- **Uninstall:** `uninstall.php` di root plugin (persyaratan WordPress) meneruskan ke `free/uninstall.php`; urutan definisi kelas diperbaiki; penghapusan baris `WP_CACHE` di `wp-config.php` diselaraskan dengan komentar yang ditulis installer (`Added by WP Static Runtime`).
 
 ### v1.2.2
 - Tambah `wsr_crawler_sslverify` filter untuk self-signed cert support
