@@ -2,20 +2,17 @@
 WP Static Runtime — Instalasi / Installation
 ================================================================================
 
-Struktur ZIP dan folder di server (flat — tidak boleh bersarang dua tingkat):
+Struktur ZIP (FLAT - isi plugin langsung di root zip):
+  wp-static-runtime.php   ← file utama di sini
+  uninstall.php
+  free/
+  premium-ui/
 
-  BENAR — setelah ekstrak / upload:
-    wp-static-runtime/
-      wp-static-runtime.php   ← file utama di sini
-      uninstall.php
-      INSTALL.txt
-      free/
-      premium-ui/
-
-  SALAH — jangan sampai seperti ini:
-    wp-static-runtime/
-      wp-static-runtime/       ← folder nama sama di dalam folder (salah)
-        wp-static-runtime.php
+WordPress akan otomatis membuat folder plugin berdasarkan nama file zip.
+Struktur di server setelah instalasi:
+  wp-content/plugins/wp-static-runtime/
+    wp-static-runtime.php
+    ...
 
 ================================================================================
 

@@ -3,7 +3,7 @@
  * Plugin Name:       WP Static Runtime
  * Plugin URI:        https://statixpress.site
  * Description:       Static HTML caching engine for WordPress — full static cache, smart crawler, dependency graph, and Apache/Nginx rules. Upgrade to Premium for ISR, CDN purge, Redis, and more.
- * Version:           1.2.5
+ * Version:           1.2.6
  * Author:            WP Static Runtime
  * Author URI:        https://statixpress.site
  * License:           GPL-2.0-or-later

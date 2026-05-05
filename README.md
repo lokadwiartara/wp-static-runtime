@@ -102,9 +102,15 @@ Chrome dan browser lain menambahkan sufiks seperti `(1)`, `(5)` pada zip berulan
 4. Upload zip → klik **Install Now** → **Activate**
 
 ### Via FTP / File Manager
-1. Download dan ekstrak `wp-static-runtime.zip`
-2. Upload folder **`wp-static-runtime/`** ke `wp-content/plugins/` sehingga file utama ada di  
-   `wp-content/plugins/wp-static-runtime/wp-static-runtime.php`  
+   BENAR — struktur di dalam ZIP (flat):
+     wp-static-runtime.php   ← file utama langsung di root zip
+     uninstall.php
+     free/
+     premium-ui/
+
+   Jika Anda menggunakan build dari source (`tools/build-release.ps1`), zip sekarang 
+   dibuat flat agar WordPress selalu membuat folder yang benar meskipun nama file 
+   zip diubah (misal oleh browser).
    (**satu** folder di bawah `plugins/`, bukan bersarang dua tingkat.)
 3. Aktifkan via **Plugins → Installed Plugins**
 
@@ -114,12 +120,11 @@ WordPress hanya mendukung bentuk path **`plugins/nama-folder/file-utama.php`** (
 Jika Anda melihat URL aktivasi seperti `.../wp-static-runtime-1.2.x/wp-static-runtime/wp-static-runtime.php` (dua folder bertingkat), berarti struktur di server salah.
 
 **Perbaikan:**
-1. Di `wp-content/plugins/`, pastikan isinya seperti ini (contoh):  
-   `wp-static-runtime/wp-static-runtime.php` + folder `free/`, `premium-ui/`, dll.  
-   **Salah:** `plugins/wp-static-runtime-1.2.x/wp-static-runtime/wp-static-runtime.php`  
-   **Benar:** `plugins/wp-static-runtime/wp-static-runtime.php`
-2. Hapus folder plugin yang bentuknya bersarang / duplikat, lalu pasang ulang dengan **`wp-static-runtime.zip`** dari halaman Releases (bukan zip “Source code” GitHub).
-3. Untuk build dari source lokal, jalankan `tools/build-release.ps1` — zip keluar di `dist/wp-static-runtime.zip` dengan struktur yang sudah divalidasi.
+1. Periksa isi ZIP. Sekarang isi ZIP harus langsung berupa file (`wp-static-runtime.php`), 
+   bukan folder `wp-static-runtime/` di dalam folder lagi.
+2. Jika Anda membangun dari source lokal, jalankan `tools/build-release.ps1` — zip 
+   dibuat di `dist/wp-static-runtime.zip` dengan struktur flat yang aman dari 
+   perubahan nama file zip.
 
 ### Yang terjadi saat aktivasi:
 - ✅ Membuat direktori `wp-content/wsr-cache/`

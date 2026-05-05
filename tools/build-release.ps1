@@ -50,34 +50,51 @@ STAGING INVALID: there must be no folder named 'wp-static-runtime' inside the pl
 "@
 }
 
-Compress-Archive -Path $StagePath -DestinationPath $ZipPath -Force
-
-# Verify zip root is exactly one folder "wp-static-runtime" with main php inside
+Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
+if (Test-Path $ZipPath) { Remove-Item $ZipPath -Force }
+
+# Create zip manually to ensure forward slashes (standard ZIP format)
+$stream = [System.IO.File]::OpenWrite($ZipPath)
+$archive = New-Object System.IO.Compression.ZipArchive($stream, [System.IO.Compression.ZipArchiveMode]::Create)
+
+try {
+    $files = Get-ChildItem -Path $StagePath -Recurse | Where-Object { -not $_.PSIsContainer }
+    foreach ($file in $files) {
+        # Get relative path and force forward slashes
+        $relativeName = $file.FullName.Substring($StagePath.Length).TrimStart('\').Replace('\', '/')
+        
+        $entry = $archive.CreateEntry($relativeName, [System.IO.Compression.CompressionLevel]::Optimal)
+        $entryStream = $entry.Open()
+        $fileStream = [System.IO.File]::OpenRead($file.FullName)
+        $fileStream.CopyTo($entryStream)
+        $fileStream.Close()
+        $entryStream.Close()
+    }
+}
+finally {
+    $archive.Dispose()
+    $stream.Close()
+}
+
+# Verify zip has main php at the top level
 $zip = [System.IO.Compression.ZipFile]::OpenRead($ZipPath)
 try {
     $entries = $zip.Entries | Where-Object { $_.FullName -and ($_.FullName -notmatch '[\\/]$') }
-    $roots = @( $entries | ForEach-Object {
-        $norm = $_.FullName -replace '\\', '/'
-        ($norm -split '/')[0]
-    } | Sort-Object -Unique )
-    if ($roots.Count -ne 1 -or $roots[0] -ne $StageName) {
-        throw "Zip must have single root folder '$StageName'. Found: $($roots -join ', ')"
-    }
+    
+    # Pastikan file utama ada di root zip (bukan di dalam subfolder)
+    # Gunakan normalisasi slash untuk pengecekan verifikasi juga
     $mainEntry = $entries | Where-Object {
-        ($_.FullName -replace '\\', '/') -eq "$StageName/wp-static-runtime.php"
+        ($_.FullName -replace '\\', '/') -eq "wp-static-runtime.php"
     }
     if (-not $mainEntry) {
-        throw "Zip missing entry ${StageName}/wp-static-runtime.php"
+        throw "Zip INVALID: wp-static-runtime.php must be at the zip root."
     }
 
-    # Fail if zip accidentally contains nested wp-static-runtime/wp-static-runtime/
-    # (WordPress then expects plugin=wp-static-runtime/wp-static-runtime/wp-static-runtime.php → file missing).
-    $nestedBad = $entries | Where-Object {
-        ($_.FullName -replace '\\', '/') -match '^wp-static-runtime/wp-static-runtime/'
-    }
-    if ($nestedBad) {
-        throw "Zip must NOT contain nested folder wp-static-runtime/wp-static-runtime/. Bad entries: $($nestedBad[0].FullName) ..."
+    # Pastikan entry name benar-benar menggunakan forward slash (kode 47)
+    $badEntry = $entries | Where-Object { $_.FullName -match '\\' }
+    if ($badEntry) {
+        throw "Zip INVALID: Backslashes found in entry names: $($badEntry[0].FullName). All paths must use '/'."
     }
 }
 finally {
