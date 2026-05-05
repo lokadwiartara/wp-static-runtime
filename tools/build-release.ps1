@@ -5,6 +5,11 @@
 .NOTES
     WordPress expects: wp-content/plugins/<one-folder>/<main-plugin>.php
     Wrong layout causes "Plugin file does not exist" when activating.
+
+    BENTUK SALAH (folder di dalam folder nama sama):
+      wp-static-runtime/wp-static-runtime/wp-static-runtime.php
+    BENTUK BENAR (hanya satu tingkat setelah root zip):
+      wp-static-runtime/wp-static-runtime.php
 #>
 
 $ErrorActionPreference = 'Stop'
@@ -34,6 +39,16 @@ foreach ($item in $Include) {
 
 $MainPhp = Join-Path $StagePath 'wp-static-runtime.php'
 if (-not (Test-Path $MainPhp)) { throw 'Main plugin file missing after stage.' }
+
+# Larangan: subfolder "wp-static-runtime" lagi di dalam root plugin (double nest).
+$NestedPluginDir = Join-Path $StagePath 'wp-static-runtime'
+if (Test-Path -LiteralPath $NestedPluginDir) {
+    throw @"
+STAGING INVALID: there must be no folder named 'wp-static-runtime' inside the plugin root.
+  Found: $NestedPluginDir
+  Fix your copy list — the zip must flatten to: wp-static-runtime/<main>.php, free/, premium-ui/, NOT wp-static-runtime/wp-static-runtime/...
+"@
+}
 
 Compress-Archive -Path $StagePath -DestinationPath $ZipPath -Force
 

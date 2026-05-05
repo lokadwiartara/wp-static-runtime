@@ -2,6 +2,23 @@
 WP Static Runtime — Instalasi / Installation
 ================================================================================
 
+Struktur ZIP dan folder di server (flat — tidak boleh bersarang dua tingkat):
+
+  BENAR — setelah ekstrak / upload:
+    wp-static-runtime/
+      wp-static-runtime.php   ← file utama di sini
+      uninstall.php
+      INSTALL.txt
+      free/
+      premium-ui/
+
+  SALAH — jangan sampai seperti ini:
+    wp-static-runtime/
+      wp-static-runtime/       ← folder nama sama di dalam folder (salah)
+        wp-static-runtime.php
+
+================================================================================
+
 PENTING — nama file .zip (Important — the .zip filename)
 --------------------------------------------------------------------------------
 Browser (Chrome, Edge, Firefox) sering mengunduh ulang file yang sama dengan
