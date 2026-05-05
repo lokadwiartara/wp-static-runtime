@@ -55,6 +55,15 @@ try {
     if (-not $mainEntry) {
         throw "Zip missing entry ${StageName}/wp-static-runtime.php"
     }
+
+    # Fail if zip accidentally contains nested wp-static-runtime/wp-static-runtime/
+    # (WordPress then expects plugin=wp-static-runtime/wp-static-runtime/wp-static-runtime.php → file missing).
+    $nestedBad = $entries | Where-Object {
+        ($_.FullName -replace '\\', '/') -match '^wp-static-runtime/wp-static-runtime/'
+    }
+    if ($nestedBad) {
+        throw "Zip must NOT contain nested folder wp-static-runtime/wp-static-runtime/. Bad entries: $($nestedBad[0].FullName) ..."
+    }
 }
 finally {
     $zip.Dispose()

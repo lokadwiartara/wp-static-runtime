@@ -38,3 +38,28 @@ bukan:
   wp-content/plugins/wp-static-runtime5/...
 
 ================================================================================
+Folder dobel / Double nested folder (error « Plugin file does not exist »)
+--------------------------------------------------------------------------------
+Jika URL aktivasi berbentuk:
+
+  ...plugin=wp-static-runtime/wp-static-runtime/wp-static-runtime.php
+
+artinya di server file utama ada DI DALAM dua tingkat folder bernama sama:
+
+  SALAH:
+    wp-content/plugins/wp-static-runtime/wp-static-runtime/wp-static-runtime.php
+
+  BENAR:
+    wp-content/plugins/wp-static-runtime/wp-static-runtime.php
+
+Perbaikan di SSH (pindahkan isi folder dalam ke folder plugin):
+
+  cd /var/www/.../wp-content/plugins/wp-static-runtime
+  rsync -a wp-static-runtime/ . && rm -rf wp-static-runtime
+
+  # tanpa rsync (bash):
+  # shopt -s dotglob && mv wp-static-runtime/* . && rmdir wp-static-runtime
+
+Atau hapus seluruh folder plugin ini, pasang ulang dari ZIP yang benar.
+
+================================================================================
