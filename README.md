@@ -2,7 +2,7 @@
 
 **Static HTML caching engine for WordPress.** Serve pages at CDN speed from any shared host — zero PHP execution on cached pages.
 
-[![Version](https://img.shields.io/badge/version-1.2.3-7c3aed?style=flat-square)](https://github.com/lokadwiartara/wp-static-runtime/releases)
+[![Version](https://img.shields.io/badge/version-1.2.4-7c3aed?style=flat-square)](https://github.com/lokadwiartara/wp-static-runtime/releases)
 [![WordPress](https://img.shields.io/badge/WordPress-5.8%2B-21759b?style=flat-square&logo=wordpress)](https://wordpress.org)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4?style=flat-square&logo=php)](https://php.net)
 [![License](https://img.shields.io/badge/license-GPL--2.0-green?style=flat-square)](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -87,14 +87,29 @@ Ketika konten diupdate, plugin menghapus cache halaman terkait secara otomatis b
 ## Instalasi / Installation
 
 ### Via WordPress Dashboard
-1. Download `wp-static-runtime.zip` dari [Releases](../../releases/latest)
+1. Download **`wp-static-runtime.zip`** dari [Releases](../../releases/latest) (aset bernama persis itu — **bukan** “Source code” dari tab Code).
 2. Masuk ke **WordPress Admin → Plugins → Add New → Upload Plugin**
 3. Upload zip → klik **Install Now** → **Activate**
 
 ### Via FTP / File Manager
 1. Download dan ekstrak `wp-static-runtime.zip`
-2. Upload folder `wp-static-runtime/` ke `wp-content/plugins/`
+2. Upload folder **`wp-static-runtime/`** ke `wp-content/plugins/` sehingga file utama ada di  
+   `wp-content/plugins/wp-static-runtime/wp-static-runtime.php`  
+   (**satu** folder di bawah `plugins/`, bukan bersarang dua tingkat.)
 3. Aktifkan via **Plugins → Installed Plugins**
+
+### Error: « Plugin file does not exist » / File plugin tidak ada
+
+WordPress hanya mendukung bentuk path **`plugins/nama-folder/file-utama.php`** (tepat **satu** subfolder).  
+Jika Anda melihat URL aktivasi seperti `.../wp-static-runtime-1.2.x/wp-static-runtime/wp-static-runtime.php` (dua folder bertingkat), berarti struktur di server salah.
+
+**Perbaikan:**
+1. Di `wp-content/plugins/`, pastikan isinya seperti ini (contoh):  
+   `wp-static-runtime/wp-static-runtime.php` + folder `free/`, `premium-ui/`, dll.  
+   **Salah:** `plugins/wp-static-runtime-1.2.x/wp-static-runtime/wp-static-runtime.php`  
+   **Benar:** `plugins/wp-static-runtime/wp-static-runtime.php`
+2. Hapus folder plugin yang bentuknya bersarang / duplikat, lalu pasang ulang dengan **`wp-static-runtime.zip`** dari halaman Releases (bukan zip “Source code” GitHub).
+3. Untuk build dari source lokal, jalankan `tools/build-release.ps1` — zip keluar di `dist/wp-static-runtime.zip` dengan struktur yang sudah divalidasi.
 
 ### Yang terjadi saat aktivasi:
 - ✅ Membuat direktori `wp-content/wsr-cache/`
@@ -146,6 +161,10 @@ Request berikut **tidak pernah** di-cache:
 ---
 
 ## Changelog
+
+### v1.2.4
+- **Dokumentasi & rilis zip:** Penjelasan error *Plugin file does not exist* akibat folder plugin bersarang (`.../versi/.../wp-static-runtime.php`). WordPress membutuhkan tepat satu folder plugin di bawah `plugins/`.
+- **Skrip `tools/build-release.ps1`:** Membangun `dist/wp-static-runtime.zip` dengan satu root folder `wp-static-runtime/` (struktur dicek otomatis).
 
 ### v1.2.3
 - **Perbaikan plugin tidak ter-load / aktivasi:** `WSR_FILE` kini selalu diset dari file utama plugin (`__FILE__`) sehingga `register_activation_hook`, `plugin_basename`, dan URL aset selaras dengan path yang WordPress gunakan (aman untuk folder hasil zip GitHub, symlink, dan normalisasi path).
