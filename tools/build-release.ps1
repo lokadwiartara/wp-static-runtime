@@ -21,6 +21,7 @@ $Include = @(
     'wp-static-runtime.php',
     'uninstall.php',
     'README.md',
+    'INSTALL.txt',
     'free',
     'premium-ui'
 )

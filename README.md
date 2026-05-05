@@ -2,7 +2,7 @@
 
 **Static HTML caching engine for WordPress.** Serve pages at CDN speed from any shared host — zero PHP execution on cached pages.
 
-[![Version](https://img.shields.io/badge/version-1.2.4-7c3aed?style=flat-square)](https://github.com/lokadwiartara/wp-static-runtime/releases)
+[![Version](https://img.shields.io/badge/version-1.2.5-7c3aed?style=flat-square)](https://github.com/lokadwiartara/wp-static-runtime/releases)
 [![WordPress](https://img.shields.io/badge/WordPress-5.8%2B-21759b?style=flat-square&logo=wordpress)](https://wordpress.org)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-777bb4?style=flat-square&logo=php)](https://php.net)
 [![License](https://img.shields.io/badge/license-GPL--2.0-green?style=flat-square)](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -86,10 +86,20 @@ Ketika konten diupdate, plugin menghapus cache halaman terkait secara otomatis b
 
 ## Instalasi / Installation
 
+### Nama file unduhan browser / Browser download names
+
+Chrome dan browser lain menambahkan sufiks seperti `(1)`, `(5)` pada zip berulang. WordPress menyederhanakan nama itu sehingga folder plugin bisa menjadi **`wp-static-runtime5`** alih-alih **`wp-static-runtime`** — itu perilaku normal WP dari **nama file zip**, bukan isi plugin.
+
+**Sebelum upload:** ubah nama file menjadi **`wp-static-runtime.zip`** (tanpa angka atau kurung).  
+**Sudah terpasang salah:** dari SSH/FTP, di `wp-content/plugins/` jalankan  
+`mv wp-static-runtime5 wp-static-runtime`  
+(lihat juga **`INSTALL.txt`** di dalam paket plugin.)
+
 ### Via WordPress Dashboard
 1. Download **`wp-static-runtime.zip`** dari [Releases](../../releases/latest) (aset bernama persis itu — **bukan** “Source code” dari tab Code).
-2. Masuk ke **WordPress Admin → Plugins → Add New → Upload Plugin**
-3. Upload zip → klik **Install Now** → **Activate**
+2. **Rename** file jika browser menambahkan `(1)` / `(5)` pada nama — harus **`wp-static-runtime.zip`** sebelum upload.
+3. Masuk ke **WordPress Admin → Plugins → Add New → Upload Plugin**
+4. Upload zip → klik **Install Now** → **Activate**
 
 ### Via FTP / File Manager
 1. Download dan ekstrak `wp-static-runtime.zip`
@@ -161,6 +171,10 @@ Request berikut **tidak pernah** di-cache:
 ---
 
 ## Changelog
+
+### v1.2.5
+- **`INSTALL.txt`:** Petunjuk rename zip / rename folder (`wp-static-runtime5` → `wp-static-runtime`) ketika browser mengubah nama unduhan.
+- **README:** Penjelasan bahwa sufiks `(5)` pada nama file zip membuat WordPress membuat folder `wp-static-runtime5`.
 
 ### v1.2.4
 - **Dokumentasi & rilis zip:** Penjelasan error *Plugin file does not exist* akibat folder plugin bersarang (`.../versi/.../wp-static-runtime.php`). WordPress membutuhkan tepat satu folder plugin di bawah `plugins/`.

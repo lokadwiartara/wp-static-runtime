@@ -1,0 +1,40 @@
+================================================================================
+WP Static Runtime — Instalasi / Installation
+================================================================================
+
+PENTING — nama file .zip (Important — the .zip filename)
+--------------------------------------------------------------------------------
+Browser (Chrome, Edge, Firefox) sering mengunduh ulang file yang sama dengan
+nama seperti:
+
+  wp-static-runtime (1).zip
+  wp-static-runtime (5).zip
+  wp-static-runtime(5).zip
+
+WordPress menormalisasi nama unggahan: tanda kurung dihapus sehingga nama
+folder plugin di server bisa menjadi "wp-static-runtime5" (salah), bukan
+"wp-static-runtime" (benar).
+
+SEBELUM upload ke WordPress:
+  • Ubah nama file menjadi persis:  wp-static-runtime.zip
+  • Atau unggah lewat FTP setelah mengekstrak folder "wp-static-runtime" saja.
+
+Contoh rename di Linux / SSH:
+  mv "wp-static-runtime (5).zip" wp-static-runtime.zip
+
+Contoh rename folder yang sudah salah terpasang:
+  cd wp-content/plugins
+  mv wp-static-runtime5 wp-static-runtime
+
+Setelah rename folder, buka Plugins di WordPress dan aktifkan lagi jika perlu.
+
+================================================================================
+Plugin siap pakai harus berada di:
+
+  wp-content/plugins/wp-static-runtime/wp-static-runtime.php
+
+bukan:
+
+  wp-content/plugins/wp-static-runtime5/...
+
+================================================================================
