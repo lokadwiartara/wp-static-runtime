@@ -1,0 +1,216 @@
+/* WP Static Runtime — Admin Styles */
+:root {
+    --wsr-primary:   #7c3aed;
+    --wsr-secondary: #a78bfa;
+    --wsr-bg:        #0f0f1a;
+    --wsr-surface:   #1a1a2e;
+    --wsr-border:    #2d2d4e;
+    --wsr-text:      #e2e8f0;
+    --wsr-muted:     #94a3b8;
+    --wsr-ok:        #22c55e;
+    --wsr-warn:      #f59e0b;
+    --wsr-danger:    #ef4444;
+    --wsr-radius:    10px;
+    --wsr-shadow:    0 4px 24px rgba(0,0,0,.35);
+}
+
+.wsr-wrap { max-width: 1100px; padding: 0 0 48px; }
+
+/* Page Title */
+.wsr-page-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e1e3f;
+    margin-bottom: 24px;
+}
+.wsr-logo   { font-size: 28px; }
+.wsr-version { font-size: 12px; background: var(--wsr-primary); color: #fff;
+               padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+
+/* Status Bar */
+.wsr-status-bar {
+    padding: 12px 20px;
+    border-radius: var(--wsr-radius);
+    font-weight: 600;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+.wsr-status-bar.active   { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.wsr-status-bar.inactive { background: #fef9c3; color: #854d0e; border: 1px solid #fde68a; }
+
+/* Stat Cards */
+.wsr-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+.wsr-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--wsr-radius);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    transition: box-shadow .2s;
+}
+.wsr-card:hover       { box-shadow: 0 4px 16px rgba(124,58,237,.12); }
+.wsr-card-icon        { font-size: 28px; margin-bottom: 8px; }
+.wsr-card-value       { font-size: 28px; font-weight: 800; color: var(--wsr-primary); }
+.wsr-card-value small { font-size: 14px; font-weight: 400; }
+.wsr-card-label       { font-size: 12px; color: #64748b; margin-top: 4px; }
+
+/* Sections */
+.wsr-section { margin-bottom: 32px; }
+.wsr-section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e1e3f;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+/* Quick Actions */
+.wsr-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.wsr-btn { height: 38px !important; display: inline-flex; align-items: center; gap: 6px;
+           font-size: 13px !important; }
+
+/* Status Table */
+.wsr-status-table td { vertical-align: middle; padding: 10px 16px !important; }
+
+/* Badges */
+.wsr-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+.wsr-badge.ok  { background: #dcfce7; color: #15803d; }
+.wsr-badge.off { background: #fee2e2; color: #b91c1c; }
+
+/* Notice */
+.wsr-notice {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+}
+.wsr-notice.success { background: #dcfce7; color: #15803d; }
+.wsr-notice.error   { background: #fee2e2; color: #b91c1c; }
+.wsr-notice.info    { background: #e0f2fe; color: #0369a1; }
+
+/* Cache Stats Bar */
+.wsr-cache-stats-bar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--wsr-radius);
+    padding: 14px 20px;
+    margin-bottom: 20px;
+}
+.wsr-cache-stats-bar span { font-size: 14px; color: #475569; }
+.wsr-cache-stats-bar .button { margin-left: auto; }
+
+/* Cache Table */
+.wsr-cache-table th { background: #f1f5f9 !important; font-weight: 700; }
+.wsr-cache-table tr:hover td { background: #f8fafc; }
+
+/* Settings Sections */
+.wsr-settings-section {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--wsr-radius);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+.wsr-settings-section h2 {
+    margin-top: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--wsr-primary);
+}
+.wsr-settings-section .form-table th { width: 240px; }
+
+/* Upgrade Banner */
+.wsr-upgrade-banner {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: #fff;
+    border-radius: var(--wsr-radius);
+    padding: 28px 32px;
+    margin-top: 24px;
+}
+.wsr-upgrade-banner h3 { color: #fff; font-size: 18px; margin: 0 0 8px; }
+.wsr-upgrade-banner p  { color: rgba(255,255,255,.85); margin: 0 0 16px; }
+.wsr-upgrade-banner .button {
+    background: #fff !important;
+    color: #4f46e5 !important;
+    border: none !important;
+    font-weight: 700;
+}
+
+/* Premium badge */
+.wsr-premium-badge {
+    background: linear-gradient(90deg,#f59e0b,#f97316);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+
+/* Crawler Panel */
+.wsr-crawler-panel { background: #fff; border: 1px solid #e2e8f0;
+                     border-radius: var(--wsr-radius); padding: 24px; }
+.wsr-crawler-status { margin-top: 20px; }
+.wsr-crawler-status ul { list-style: none; padding: 0; margin: 0; }
+.wsr-crawler-status li { padding: 6px 0; font-size: 13px; color: #475569; border-bottom: 1px solid #f1f5f9; }
+
+/* Spinner */
+.wsr-spinner { display: inline-block; width: 14px; height: 14px;
+               border: 2px solid #e2e8f0; border-top-color: var(--wsr-primary);
+               border-radius: 50%; animation: wsr-spin .6s linear infinite; }
+@keyframes wsr-spin { to { transform: rotate(360deg); } }
+
+/* Progress Bar */
+.wsr-progress-bar-bg {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.wsr-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+.wsr-crawler-panel { background: #fff; border: 1px solid #e2e8f0; border-radius: var(--wsr-radius); padding: 24px; }
+
+/* Row purged state */
+.wsr-row-purged td { opacity: 0.4; text-decoration: line-through; }
+
+/* Diagnostic result box */
+.wsr-diag-result {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    margin-top: 12px;
+}
+.wsr-diag-result p { margin: 0 0 8px; }
+.wsr-diag-result code { background: #1e1e2e; color: #cdd6f4; padding: 2px 6px; border-radius: 4px; word-break: break-all; }

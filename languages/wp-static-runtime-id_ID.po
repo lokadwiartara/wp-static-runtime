@@ -1,0 +1,738 @@
+# WP Static Runtime — Indonesian Translation
+# Copyright (C) 2024 WP Static Runtime
+# This file is distributed under the same license as the WP Static Runtime plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Static Runtime 1.3.0\n"
+"Report-Msgid-Bugs-To: https://statixpress.site\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: WP Static Runtime\n"
+"Language-Team: Indonesian\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# ── General / Dashboard ───────────────────────────────────────────────────────
+
+msgid "Folder free/ not found."
+msgstr "Folder free/ tidak ditemukan."
+
+msgid "Core classes not found. Make sure the free/ folder is intact."
+msgstr "Class inti tidak ditemukan. Pastikan folder free/ tidak rusak."
+
+msgid "Premium features require an active license."
+msgstr "Fitur premium memerlukan lisensi aktif."
+
+msgid "Activate License"
+msgstr "Aktifkan Lisensi"
+
+msgid "New content published. Cache for related pages has been cleared automatically."
+msgstr "Konten baru telah dipublikasi. Cache halaman terkait telah dihapus otomatis."
+
+msgid "To rebuild the cache with the latest content, follow these steps:"
+msgstr "Untuk membangun ulang cache dengan konten terbaru, ikuti langkah berikut:"
+
+msgid "1. Flush All Cache"
+msgstr "1. Hapus Semua Cache"
+
+msgid "2. Start Crawler"
+msgstr "2. Jalankan Crawler"
+
+msgid "or"
+msgstr "atau"
+
+msgid "Upgrade to Premium"
+msgstr "Upgrade ke Premium"
+
+msgid "for automatic ISR with zero downtime"
+msgstr "untuk ISR otomatis tanpa downtime"
+
+# ── Settings ──────────────────────────────────────────────────────────────────
+
+msgid "Settings saved."
+msgstr "Pengaturan disimpan."
+
+msgid "WP Static Runtime — Settings"
+msgstr "WP Static Runtime — Pengaturan"
+
+msgid "General"
+msgstr "Umum"
+
+msgid "Enable Cache"
+msgstr "Aktifkan Cache"
+
+msgid "Serve static HTML to visitors"
+msgstr "Sajikan HTML statis kepada pengunjung"
+
+msgid "Cache TTL"
+msgstr "TTL Cache"
+
+msgid "Seconds (0 = never expire)"
+msgstr "Detik (0 = tidak pernah kadaluarsa)"
+
+msgid "Skip Logged-In Users"
+msgstr "Lewati Pengguna yang Login"
+
+msgid "Recommended: logged-in users always see dynamic content"
+msgstr "Disarankan: pengguna yang login selalu melihat konten dinamis"
+
+msgid "Skip Query Strings"
+msgstr "Lewati Query String"
+
+msgid "Don't cache URLs with query parameters"
+msgstr "Jangan cache URL dengan parameter query"
+
+msgid "Optimisation"
+msgstr "Optimasi"
+
+msgid "Gzip Cache Files"
+msgstr "Kompresi Cache Gzip"
+
+msgid "Store a gzip-compressed version alongside plain HTML"
+msgstr "Simpan versi terkompresi gzip di samping HTML biasa"
+
+msgid "Minify HTML"
+msgstr "Minify HTML"
+
+msgid "Remove whitespace and HTML comments from cached pages"
+msgstr "Hapus spasi dan komentar HTML dari halaman yang di-cache"
+
+msgid "Apache Rewrite Rules"
+msgstr "Aturan Rewrite Apache"
+
+msgid "Auto-write .htaccess rules to serve static files without PHP"
+msgstr "Tulis otomatis aturan .htaccess untuk menyajikan file statis tanpa PHP"
+
+msgid "WooCommerce Hybrid Mode"
+msgstr "Mode Hybrid WooCommerce"
+
+msgid "Enable Hybrid Cache"
+msgstr "Aktifkan Cache Hybrid"
+
+msgid "Cache shop, products, categories. Skip cart/checkout."
+msgstr "Cache toko, produk, kategori. Lewati keranjang/checkout."
+
+msgid "Excluded WooCommerce Pages"
+msgstr "Halaman WooCommerce yang Dikecualikan"
+
+msgid "One slug per line. e.g. cart, checkout, my-account"
+msgstr "Satu slug per baris. contoh: cart, checkout, my-account"
+
+msgid "Exclusions"
+msgstr "Pengecualian"
+
+msgid "Excluded URLs"
+msgstr "URL yang Dikecualikan"
+
+msgid "One URL path per line. e.g. /members, /private"
+msgstr "Satu path URL per baris. contoh: /members, /private"
+
+msgid "Excluded Cookies"
+msgstr "Cookie yang Dikecualikan"
+
+msgid "Skip caching if these cookie names are present."
+msgstr "Lewati cache jika nama cookie ini ada."
+
+msgid "Save Settings"
+msgstr "Simpan Pengaturan"
+
+msgid "Apache — .htaccess Rules"
+msgstr "Apache — Aturan .htaccess"
+
+msgid "These rules let Apache serve cached HTML directly — without invoking PHP at all (5–15ms TTFB)."
+msgstr "Aturan ini memungkinkan Apache menyajikan HTML yang di-cache secara langsung tanpa memanggil PHP sama sekali (5–15ms TTFB)."
+
+msgid ".htaccess path"
+msgstr "Path .htaccess"
+
+msgid "file not found"
+msgstr "file tidak ditemukan"
+
+msgid "not writable (chmod)"
+msgstr "tidak bisa ditulis (chmod)"
+
+msgid "exists & writable"
+msgstr "ada & bisa ditulis"
+
+msgid "Generated Rules"
+msgstr "Aturan yang Dibuat"
+
+msgid "Rules are written automatically to .htaccess when \"Apache Rewrite Rules\" is enabled above. You can also copy-paste manually."
+msgstr "Aturan ditulis otomatis ke .htaccess saat \"Aturan Rewrite Apache\" aktif di atas. Anda juga bisa copy-paste secara manual."
+
+msgid "Copy and paste into your .htaccess manually, placing it before the # BEGIN WordPress block."
+msgstr "Copy dan paste ke .htaccess Anda secara manual, letakkan sebelum blok # BEGIN WordPress."
+
+msgid "Nginx — Server Block Snippet"
+msgstr "Nginx — Cuplikan Server Block"
+
+msgid "Nginx cannot be configured by PHP directly. Add the following snippet inside your"
+msgstr "Nginx tidak bisa dikonfigurasi oleh PHP secara langsung. Tambahkan cuplikan berikut ke dalam"
+
+msgid "block in your Nginx config file, BEFORE the existing WordPress block."
+msgstr "blok di file konfigurasi Nginx Anda, SEBELUM blok WordPress yang ada."
+
+msgid "How to use:"
+msgstr "Cara penggunaan:"
+
+msgid "Open your Nginx config file (e.g."
+msgstr "Buka file konfigurasi Nginx Anda (misal:"
+
+msgid "Copy the snippet below into the"
+msgstr "Copy cuplikan di bawah ke dalam"
+
+msgid "block, before the"
+msgstr "blok, sebelum baris"
+
+msgid "line"
+msgstr ""
+
+msgid "Run"
+msgstr "Jalankan"
+
+msgid "to verify, then"
+msgstr "untuk verifikasi, lalu"
+
+msgid "Adjust the PHP-FPM socket path in the fastcgi_pass line if it differs from the default."
+msgstr "Sesuaikan path socket PHP-FPM di baris fastcgi_pass jika berbeda dari default."
+
+# ── Crawler Page ──────────────────────────────────────────────────────────────
+
+msgid "Manual Mode — Free Version"
+msgstr "Mode Manual — Versi Gratis"
+
+msgid "The crawler must be run manually each time new content is published. Auto-Crawler (scheduled cron + ISR) is available in Premium."
+msgstr "Crawler harus dijalankan manual setiap kali ada konten baru dipublikasi. Auto-Crawler (cron terjadwal + ISR) tersedia di Premium."
+
+msgid "Visits all public URLs and builds a static HTML cache. No external sitemap required."
+msgstr "Mengunjungi semua URL publik dan membangun cache HTML statis. Tidak memerlukan sitemap eksternal."
+
+msgid "Server Connectivity"
+msgstr "Konektivitas Server"
+
+msgid "URLs to Cache"
+msgstr "URL yang akan Di-cache"
+
+msgid "Cache Directory"
+msgstr "Direktori Cache"
+
+msgid "Crawl Controls"
+msgstr "Kontrol Crawl"
+
+msgid "Last Crawl Results"
+msgstr "Hasil Crawl Terakhir"
+
+# ── Diagnostic ────────────────────────────────────────────────────────────────
+
+msgid "Diagnostic"
+msgstr "Diagnostik"
+
+msgid "This page checks every part of WP Static Runtime to find what's not working."
+msgstr "Halaman ini memeriksa setiap bagian WP Static Runtime untuk menemukan apa yang tidak berfungsi."
+
+msgid "Check"
+msgstr "Pemeriksaan"
+
+msgid "Value / Status"
+msgstr "Nilai / Status"
+
+msgid "Fix"
+msgstr "Perbaikan"
+
+msgid "Manual Cache Test"
+msgstr "Tes Cache Manual"
+
+msgid "Click the button below to manually cache the homepage. Check your cache directory afterwards."
+msgstr "Klik tombol di bawah untuk meng-cache halaman utama secara manual. Periksa direktori cache Anda setelahnya."
+
+msgid "Test: Cache Homepage Now"
+msgstr "Tes: Cache Halaman Utama Sekarang"
+
+msgid "Reinstall advanced-cache.php"
+msgstr "Instal Ulang advanced-cache.php"
+
+msgid "Cache Directory"
+msgstr "Direktori Cache"
+
+msgid "No cached files found yet."
+msgstr "Belum ada file yang di-cache."
+
+msgid "HTML files found:"
+msgstr "File HTML ditemukan:"
+
+msgid "Directory:"
+msgstr "Direktori:"
+
+# ── Premium / License ─────────────────────────────────────────────────────────
+
+msgid "Premium Feature — License Required"
+msgstr "Fitur Premium — Lisensi Diperlukan"
+
+msgid "Activate your license key to use this feature."
+msgstr "Aktifkan license key Anda untuk menggunakan fitur ini."
+
+msgid "Buy Premium"
+msgstr "Beli Premium"
+
+msgid "License Activation"
+msgstr "Aktivasi Lisensi"
+
+msgid "License Status"
+msgstr "Status Lisensi"
+
+msgid "WordPress URL where the WP Static Runtime License Server plugin is installed."
+msgstr "URL WordPress tempat plugin WP Static Runtime License Server diinstall."
+
+msgid "Enter the license key you received after purchase."
+msgstr "Masukkan license key yang Anda terima setelah pembelian."
+
+msgid "Deactivate if you want to transfer the license to another domain."
+msgstr "Nonaktifkan jika ingin memindahkan lisensi ke domain lain."
+
+msgid "Premium features require an active license."
+msgstr "Fitur premium memerlukan lisensi aktif."
+
+msgid "Recommendation: Enable System Cron"
+msgstr "Rekomendasi: Aktifkan System Cron"
+
+msgid "ISR relies on WP-Cron to process the background queue. WordPress's built-in WP-Cron only runs when a request hits your site — on low traffic this can delay processing by minutes or hours."
+msgstr "ISR bergantung pada WP-Cron untuk memproses antrian background. WP-Cron bawaan WordPress hanya berjalan saat ada request — di traffic rendah bisa delay menit hingga jam."
+
+msgid "For responsive ISR, disable the built-in WP-Cron and use a system cron job."
+msgstr "Untuk ISR yang responsif, nonaktifkan WP-Cron bawaan dan gunakan system cron."
+
+msgid "Add to wp-config.php:"
+msgstr "Tambahkan ke wp-config.php:"
+
+msgid "Add to server crontab"
+msgstr "Tambahkan ke crontab server"
+
+msgid "Option A — via curl (most common):"
+msgstr "Pilihan A — via curl (paling umum):"
+
+msgid "Option B — via WP-CLI (lighter):"
+msgstr "Pilihan B — via WP-CLI (lebih ringan):"
+
+msgid "With a system cron running every minute, ISR will process the queue within seconds of content changing."
+msgstr "Dengan system cron setiap menit, ISR akan memproses antrian dalam hitungan detik setelah konten berubah."
+
+msgid "Premium settings saved."
+msgstr "Pengaturan premium disimpan."
+
+msgid "Activating..."
+msgstr "Mengaktifkan..."
+
+msgid "Are you sure you want to deactivate the license on this site?"
+msgstr "Yakin ingin menonaktifkan lisensi di website ini?"
+
+msgid "Enable Auto-Crawler"
+msgstr "Aktifkan Auto-Crawler"
+
+msgid "Pre-build cache from sitemap hourly (WP-Cron)"
+msgstr "Bangun cache dari sitemap setiap jam (WP-Cron)"
+
+msgid "Crawler runs automatically every hour to keep all page caches up to date."
+msgstr "Crawler berjalan otomatis setiap jam untuk memperbarui cache semua halaman."
+
+# ── Dashboard ─────────────────────────────────────────────────────────────────
+
+msgid "Cached Pages"
+msgstr "Halaman yang Di-cache"
+
+msgid "Cache Size"
+msgstr "Ukuran Cache"
+
+msgid "Target TTFB"
+msgstr "Target TTFB"
+
+msgid "Crawler"
+msgstr "Crawler"
+
+msgid "Running"
+msgstr "Berjalan"
+
+msgid "Not run"
+msgstr "Belum dijalankan"
+
+msgid "cached"
+msgstr "di-cache"
+
+msgid "Quick Actions"
+msgstr "Aksi Cepat"
+
+msgid "Flush All Cache"
+msgstr "Hapus Semua Cache"
+
+msgid "Start Crawler"
+msgstr "Jalankan Crawler"
+
+msgid "Settings"
+msgstr "Pengaturan"
+
+msgid "Starting..."
+msgstr "Memulai..."
+
+msgid "Cancel"
+msgstr "Batal"
+
+msgid "Engine Status"
+msgstr "Status Engine"
+
+msgid "Cache Engine"
+msgstr "Engine Cache"
+
+msgid "WP_CACHE Defined"
+msgstr "WP_CACHE Didefinisikan"
+
+msgid "advanced-cache.php"
+msgstr "advanced-cache.php"
+
+msgid "Cache Directory Writable"
+msgstr "Direktori Cache Bisa Ditulis"
+
+msgid "WooCommerce Hybrid"
+msgstr "Hybrid WooCommerce"
+
+msgid "Elementor Integration"
+msgstr "Integrasi Elementor"
+
+msgid "Gzip Cache"
+msgstr "Cache Gzip"
+
+msgid "HTML Minification"
+msgstr "Minifikasi HTML"
+
+msgid "ACTIVE"
+msgstr "AKTIF"
+
+msgid "INACTIVE"
+msgstr "TIDAK AKTIF"
+
+msgid "Cache Active — Serving static HTML"
+msgstr "Cache Aktif — Menyajikan HTML statis"
+
+msgid "Cache Disabled — Enable in Settings"
+msgstr "Cache Dinonaktifkan — Aktifkan di Pengaturan"
+
+msgid "Upgrade to WP Static Runtime Premium"
+msgstr "Upgrade ke WP Static Runtime Premium"
+
+msgid "Unlock Incremental Static Regeneration, Smart Dependency Graph, WooCommerce Smart Cache, CDN Purge (Cloudflare, BunnyCDN, Fastly), and Redis cache index."
+msgstr "Buka Incremental Static Regeneration, Smart Dependency Graph, WooCommerce Smart Cache, CDN Purge (Cloudflare, BunnyCDN, Fastly), dan indeks cache Redis."
+
+msgid "Upgrade Now"
+msgstr "Upgrade Sekarang"
+
+# ── Cache Page ────────────────────────────────────────────────────────────────
+
+msgid "Cache Manager"
+msgstr "Manajer Cache"
+
+msgid "pages cached"
+msgstr "halaman di-cache"
+
+msgid "on disk"
+msgstr "di disk"
+
+msgid "Cached At"
+msgstr "Di-cache Pada"
+
+msgid "File Size"
+msgstr "Ukuran File"
+
+msgid "Actions"
+msgstr "Aksi"
+
+msgid "No cached pages yet. Start the crawler or visit your site while logged out."
+msgstr "Belum ada halaman yang di-cache. Jalankan crawler atau kunjungi situs Anda saat tidak login."
+
+msgid "missing"
+msgstr "hilang"
+
+msgid "Purge"
+msgstr "Hapus"
+
+msgid "Static Crawler"
+msgstr "Crawler Statis"
+
+msgid "Loopback HTTP"
+msgstr "HTTP Loopback"
+
+msgid "WordPress HTTP (standard mode)"
+msgstr "HTTP WordPress (mode standar)"
+
+msgid "PHP file_get_contents (bypasses loopback restriction)"
+msgstr "PHP file_get_contents (melewati batasan loopback)"
+
+msgid "cURL direct"
+msgstr "cURL langsung"
+
+msgid "No working fetch method found"
+msgstr "Tidak ada metode fetch yang berfungsi"
+
+msgid "URLs discovered from WordPress DB"
+msgstr "URL ditemukan dari DB WordPress"
+
+msgid "Writable"
+msgstr "Bisa Ditulis"
+
+msgid "Not writable — fix permissions on"
+msgstr "Tidak bisa ditulis — perbaiki izin di"
+
+msgid "Start Crawl"
+msgstr "Mulai Crawl"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Cached"
+msgstr "Di-cache"
+
+msgid "Skipped"
+msgstr "Dilewati"
+
+msgid "Failed"
+msgstr "Gagal"
+
+msgid "Started"
+msgstr "Dimulai"
+
+msgid "Finished"
+msgstr "Selesai"
+
+msgid "errors"
+msgstr "kesalahan"
+
+msgid "Reason"
+msgstr "Alasan"
+
+# ── Menu ──────────────────────────────────────────────────────────────────────
+
+msgid "Dashboard"
+msgstr "Dasbor"
+
+msgid "Cache"
+msgstr "Cache"
+
+# ── Premium Settings additional ───────────────────────────────────────────────
+
+msgid "Service ID"
+msgstr "ID Layanan"
+
+msgid "Enable Redis"
+msgstr "Aktifkan Redis"
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Password"
+msgstr "Kata Sandi"
+
+msgid "Save Premium Settings"
+msgstr "Simpan Pengaturan Premium"
+
+msgid "Save URL"
+msgstr "Simpan URL"
+
+msgid "Activate"
+msgstr "Aktifkan"
+
+msgid "License active for domain:"
+msgstr "Lisensi aktif untuk domain:"
+
+msgid "Key:"
+msgstr "Kunci:"
+
+msgid "License"
+msgstr "Lisensi"
+
+msgid "CDN"
+msgstr "CDN"
+
+msgid "ISR"
+msgstr "ISR"
+
+# ── License page ──────────────────────────────────────────────────────────────
+
+msgid "Active"
+msgstr "Aktif"
+
+msgid "Inactive"
+msgstr "Tidak Aktif"
+
+msgid "Invalid"
+msgstr "Tidak Valid"
+
+msgid "Grace Expired"
+msgstr "Grace Period Berakhir"
+
+msgid "Registered Domain"
+msgstr "Domain Terdaftar"
+
+msgid "Plan"
+msgstr "Paket"
+
+msgid "Lifetime"
+msgstr "Seumur Hidup"
+
+msgid "Expires"
+msgstr "Kadaluarsa"
+
+msgid "Last Validated"
+msgstr "Terakhir Divalidasi"
+
+msgid "License Server URL"
+msgstr "URL Server Lisensi"
+
+msgid "Server URL"
+msgstr "URL Server"
+
+msgid "License Key"
+msgstr "Kunci Lisensi"
+
+msgid "Active License"
+msgstr "Lisensi Aktif"
+
+msgid "Refresh / Validate"
+msgstr "Segarkan / Validasi"
+
+msgid "Deactivate License"
+msgstr "Nonaktifkan Lisensi"
+
+msgid "Premium Features Status"
+msgstr "Status Fitur Premium"
+
+msgid "Feature"
+msgstr "Fitur"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Incremental Static Regeneration (ISR)"
+msgstr "Regenerasi Statis Inkremental (ISR)"
+
+msgid "Smart Dependency Graph"
+msgstr "Graf Dependensi Cerdas"
+
+msgid "CDN Purge (Cloudflare, BunnyCDN, Fastly)"
+msgstr "CDN Purge (Cloudflare, BunnyCDN, Fastly)"
+
+msgid "Redis Cache Index"
+msgstr "Indeks Cache Redis"
+
+msgid "Requires License"
+msgstr "Memerlukan Lisensi"
+
+# ── CDN Page ──────────────────────────────────────────────────────────────────
+
+msgid "CDN Management"
+msgstr "Manajemen CDN"
+
+msgid "Active CDN Providers"
+msgstr "Provider CDN Aktif"
+
+msgid "No CDN providers configured. Configure in Premium Settings → CDN."
+msgstr "Tidak ada provider CDN yang dikonfigurasi. Konfigurasi di Pengaturan Premium → CDN."
+
+msgid "CDN Cache Control"
+msgstr "Kontrol Cache CDN"
+
+msgid "Purge All CDN Cache"
+msgstr "Hapus Semua Cache CDN"
+
+msgid "Purge URL"
+msgstr "Hapus URL"
+
+msgid "Provider Status"
+msgstr "Status Provider"
+
+msgid "Provider"
+msgstr "Provider"
+
+msgid "Config"
+msgstr "Konfigurasi"
+
+msgid "Enabled"
+msgstr "Aktif"
+
+msgid "Disabled"
+msgstr "Nonaktif"
+
+msgid "Configured"
+msgstr "Dikonfigurasi"
+
+msgid "Not Configured"
+msgstr "Belum Dikonfigurasi"
+
+# ── ISR Page ──────────────────────────────────────────────────────────────────
+
+msgid "ISR keeps the stale page serving while regenerating in the background — zero downtime cache updates."
+msgstr "ISR menyajikan halaman lama sambil meregenerasi di background — pembaruan cache tanpa downtime."
+
+msgid "URLs in Queue"
+msgstr "URL dalam Antrian"
+
+msgid "ISR Status"
+msgstr "Status ISR"
+
+msgid "Regeneration Queue"
+msgstr "Antrian Regenerasi"
+
+msgid "Queue is empty."
+msgstr "Antrian kosong."
+
+msgid "Action"
+msgstr "Aksi"
+
+msgid "Revalidate Now"
+msgstr "Validasi Ulang Sekarang"
+
+# ── Premium Settings form ─────────────────────────────────────────────────────
+
+msgid "Premium Settings"
+msgstr "Pengaturan Premium"
+
+msgid "Enable ISR"
+msgstr "Aktifkan ISR"
+
+msgid "Enable background regeneration"
+msgstr "Aktifkan regenerasi background"
+
+msgid "Revalidate TTL (seconds)"
+msgstr "TTL Validasi Ulang (detik)"
+
+msgid "0 = event-driven only (recommended)"
+msgstr "0 = berbasis event saja (disarankan)"
+
+msgid "Queue Batch Size"
+msgstr "Ukuran Batch Antrian"
+
+msgid "Smart Dependency"
+msgstr "Dependensi Cerdas"
+
+msgid "Enable Smart Dependency"
+msgstr "Aktifkan Dependensi Cerdas"
+
+msgid "Gutenberg block tracking, WooCommerce relations, L2 traversal"
+msgstr "Pelacakan blok Gutenberg, relasi WooCommerce, traversal L2"
+
+msgid "Enable"
+msgstr "Aktifkan"
+
+msgid "Zone ID"
+msgstr "ID Zone"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "API Key"
+msgstr "Kunci API"
+
+msgid "Pull Zone ID"
+msgstr "ID Pull Zone"
