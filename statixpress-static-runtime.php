@@ -3,7 +3,7 @@
  * Plugin Name:       StatixPress Static Runtime
  * Plugin URI:        https://statixpress.site
  * Description:       Static HTML caching runtime for WordPress with CDN, ISR, Redis, Memcached, LiteSpeed, and PageSpeed Optimizer.
- * Version:           1.3.0
+ * Version:           1.3.1
  * Author:            Loka Dwiartara
  * Author URI:        https://ilmuwebsite.com
  * License:           GPLv2 or later
@@ -16,7 +16,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 // ── Constants ────────────────────────────────────────────────────────────────
-define( 'WSR_VERSION',   '1.3.0' );
+define( 'WSR_VERSION',   '1.3.1' );
 define( 'WSR_FILE',      __FILE__ );
 define( 'WSR_PATH',      plugin_dir_path( __FILE__ ) );
 define( 'WSR_URL',       plugins_url( '/', WSR_FILE ) );
