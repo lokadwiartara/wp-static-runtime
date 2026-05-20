@@ -3,6 +3,7 @@
     bootstrap="tests/bootstrap.php"
     colors="true"
     stopOnFailure="false"
+    cacheResult="false"
 >
     <testsuites>
         <testsuite name="WSR Core">

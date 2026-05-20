@@ -1,4 +1,18 @@
-# 🚀 WP Static Runtime — 100% Free & Open Source
+=== StatixPress Static Runtime ===
+Contributors: lokadwiartara
+Tags: static, cache, speed, performance, seo
+Requires at least: 5.8
+Tested up to: 6.9
+Stable tag: 1.3.0
+Requires PHP: 7.4
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Static HTML caching engine — ISR, Smart Dependency Graph, CDN Purge, Redis, Memcached, LiteSpeed, PageSpeed Optimizer.
+
+== Description ==
+
+🚀 StatixPress Static Runtime — 100% Free & Open Source
 
 **Version:** 1.3.0  
 **License:** GPL-2.0-or-later  

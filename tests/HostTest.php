@@ -21,15 +21,15 @@ class HostTest extends TestCase {
     }
 
     public function test_from_url_non_default_port_uses_underscore_separator(): void {
-        $this->assertSame( 'localhost_port_8080', \WSR\Host::from_url( 'http://localhost:8080/' ) );
+        $this->assertSame( 'example.org_port_8080', \WSR\Host::from_url( 'http://example.org:8080/' ) );
     }
 
     public function test_from_url_non_default_https_port(): void {
-        $this->assertSame( 'localhost_port_8443', \WSR\Host::from_url( 'https://localhost:8443/' ) );
+        $this->assertSame( 'example.org_port_8443', \WSR\Host::from_url( 'https://example.org:8443/' ) );
     }
 
     public function test_from_url_no_port_component(): void {
-        $this->assertSame( 'mysite.local', \WSR\Host::from_url( 'http://mysite.local/blog/' ) );
+        $this->assertSame( 'mysite.com', \WSR\Host::from_url( 'http://mysite.com/blog/' ) );
     }
 
     // ── scheme_from_url ───────────────────────────────────────────────────────
@@ -90,9 +90,9 @@ class HostTest extends TestCase {
     }
 
     public function test_current_non_default_port_uses_underscore_separator(): void {
-        $_SERVER['HTTP_HOST'] = 'localhost:8080';
+        $_SERVER['HTTP_HOST'] = 'example.org:8080';
         unset( $_SERVER['HTTPS'] );
-        $this->assertSame( 'localhost_port_8080', \WSR\Host::current() );
+        $this->assertSame( 'example.org_port_8080', \WSR\Host::current() );
         unset( $_SERVER['HTTP_HOST'] );
     }
 }

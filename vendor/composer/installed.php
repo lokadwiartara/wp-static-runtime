@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'wp-static-runtime/wp-static-runtime',
+        'name' => 'statixpress-static-runtime/statixpress-static-runtime',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '0201c7c577d459c32f81fb207e0e6ecd58ffef7e',
@@ -244,7 +244,7 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-        'wp-static-runtime/wp-static-runtime' => array(
+        'statixpress-static-runtime/statixpress-static-runtime' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '0201c7c577d459c32f81fb207e0e6ecd58ffef7e',

@@ -1,7 +1,7 @@
 /* WP Static Runtime — Admin Styles */
 :root {
-    --wsr-primary:   #0b94c6;
-    --wsr-secondary: #08749b;
+    --wsr-primary:   #7c3aed;
+    --wsr-secondary: #a78bfa;
     --wsr-bg:        #0f0f1a;
     --wsr-surface:   #1a1a2e;
     --wsr-border:    #2d2d4e;
@@ -141,7 +141,35 @@
 }
 .wsr-settings-section .form-table th { width: 240px; }
 
+/* Upgrade Banner */
+.wsr-upgrade-banner {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: #fff;
+    border-radius: var(--wsr-radius);
+    padding: 28px 32px;
+    margin-top: 24px;
+}
+.wsr-upgrade-banner h3 { color: #fff; font-size: 18px; margin: 0 0 8px; }
+.wsr-upgrade-banner p  { color: rgba(255,255,255,.85); margin: 0 0 16px; }
+.wsr-upgrade-banner .button {
+    background: #fff !important;
+    color: #4f46e5 !important;
+    border: none !important;
+    font-weight: 700;
+}
 
+/* Premium badge */
+.wsr-premium-badge {
+    background: linear-gradient(90deg,#f59e0b,#f97316);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
 
 /* Crawler Panel */
 .wsr-crawler-panel { background: #fff; border: 1px solid #e2e8f0;
@@ -156,14 +184,33 @@
                border-radius: 50%; animation: wsr-spin .6s linear infinite; }
 @keyframes wsr-spin { to { transform: rotate(360deg); } }
 
-/* Tabs */
-.wsr-nav-tab-wrapper { margin-bottom: 24px; border-bottom: 1px solid #c3c4c7; margin-top: 10px; }
-.wsr-nav-tab-wrapper .nav-tab { font-size: 14px; font-weight: 600; padding: 8px 16px; color: #50575e; background: #f0f0f1; border-color: #c3c4c7; margin-right: 4px; border-bottom: none; border-radius: 4px 4px 0 0; }
-.wsr-nav-tab-wrapper .nav-tab.nav-tab-active { background: #f0f0f1; border-bottom: 1px solid #f0f0f1; color: var(--wsr-primary); }
-.wsr-tab-content { animation: wsr-fade-in 0.2s ease-in-out; }
-@keyframes wsr-fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+/* Progress Bar */
+.wsr-progress-bar-bg {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.wsr-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #7c3aed, #a78bfa);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+.wsr-crawler-panel { background: #fff; border: 1px solid #e2e8f0; border-radius: var(--wsr-radius); padding: 24px; }
 
-/* Dashicons Adjustments */
-.wsr-wrap h1 .dashicons { vertical-align: bottom; }
-.wsr-section h2 .dashicons { vertical-align: text-bottom; color: var(--wsr-primary); }
+/* Row purged state */
+.wsr-row-purged td { opacity: 0.4; text-decoration: line-through; }
 
+/* Diagnostic result box */
+.wsr-diag-result {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    margin-top: 12px;
+}
+.wsr-diag-result p { margin: 0 0 8px; }
+.wsr-diag-result code { background: #1e1e2e; color: #cdd6f4; padding: 2px 6px; border-radius: 4px; word-break: break-all; }

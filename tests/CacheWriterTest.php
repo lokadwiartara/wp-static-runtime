@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,13 +12,13 @@ class CacheWriterTest extends TestCase {
 
     protected function setUp(): void {
         unset( $_SERVER['HTTPS'], $_SERVER['HTTP_X_FORWARDED_PROTO'], $_SERVER['SERVER_PORT'] );
-        $_SERVER['HTTP_HOST'] = 'writer-test.local';
+        $_SERVER['HTTP_HOST'] = 'writer-test.com';
     }
 
     protected function tearDown(): void {
         unset( $_SERVER['HTTP_HOST'] );
         // Clean up any test cache files
-        $base = WSR_CACHE_DIR . 'http/writer-test.local/';
+        $base = WSR_CACHE_DIR . 'http/writer-test.com/';
         if ( is_dir( $base ) ) {
             $it = new RecursiveIteratorIterator(
                 new RecursiveDirectoryIterator( $base, FilesystemIterator::SKIP_DOTS ),
@@ -31,31 +32,31 @@ class CacheWriterTest extends TestCase {
     }
 
     public function test_write_url_creates_index_html(): void {
-        $url  = 'http://writer-test.local/test-page/';
+        $url  = 'http://writer-test.com/test-page/';
         $html = '<html><body>Hello</body></html>';
 
         // Temporarily replace index() to avoid wpdb call
         $result = $this->write_url_no_db( $url, $html );
 
         $this->assertTrue( $result );
-        $path = WSR_CACHE_DIR . 'http/writer-test.local/test-page/index.html';
+        $path = WSR_CACHE_DIR . 'http/writer-test.com/test-page/index.html';
         $this->assertFileExists( $path );
         $this->assertSame( $html, file_get_contents( $path ) );
     }
 
     public function test_write_url_returns_false_for_empty_html(): void {
-        $result = $this->write_url_no_db( 'http://writer-test.local/empty/', '' );
+        $result = $this->write_url_no_db( 'http://writer-test.com/empty/', '' );
         $this->assertFalse( $result );
     }
 
     public function test_write_url_handles_non_default_port(): void {
-        $url  = 'http://localhost:8080/port-page/';
+        $url  = 'http://example.org:8080/port-page/';
         $html = '<html>port page</html>';
 
         $result = $this->write_url_no_db( $url, $html );
 
         $this->assertTrue( $result );
-        $path = WSR_CACHE_DIR . 'http/localhost_port_8080/port-page/index.html';
+        $path = WSR_CACHE_DIR . 'http/example.org_port_8080/port-page/index.html';
         $this->assertFileExists( $path );
 
         // Cleanup
@@ -66,14 +67,14 @@ class CacheWriterTest extends TestCase {
     }
 
     public function test_write_url_strips_query_string_from_path(): void {
-        $url  = 'http://writer-test.local/qs-page/?foo=bar';
+        $url  = 'http://writer-test.com/qs-page/?foo=bar';
         $html = '<html>query</html>';
 
         $result = $this->write_url_no_db( $url, $html );
 
         $this->assertTrue( $result );
         // Path should be /qs-page/ not /qs-page/?foo=bar
-        $path = WSR_CACHE_DIR . 'http/writer-test.local/qs-page/index.html';
+        $path = WSR_CACHE_DIR . 'http/writer-test.com/qs-page/index.html';
         $this->assertFileExists( $path );
     }
 
